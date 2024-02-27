@@ -27,9 +27,6 @@ catch{
         Write-Host 'Working directory exists'
     }
 
-    cmd /c "cd $workingDirectory\GitInstall && curl -o Install-Git.ps1 https://raw.githubusercontent.com/IGL-Nick/RepoReplicator/main/Core/Install-Git.ps1)"
-    cmd /c "powershell.exe -executionpolicy bypass -noprofile -file $workingDirectory\GitInstall\Install-Git.ps1"
+    Invoke-WebRequest 'https://raw.githubusercontent.com/IGL-Nick/RepoReplicator/main/Core/Install-Git.ps1' -OutFile "$workingDirectory/GitInstall/Install-Git.ps1"
+    Start-Process -FilePath powershell.exe -ArgumentList "-executionpolicy bypass -noprofile -file $workingDirectory\GitInstall\Install-Git.ps1" -Wait
 }
-
-
-
