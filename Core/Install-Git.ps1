@@ -1,3 +1,4 @@
+$workingDirectory = 'c:\drop\GitInstall'
 try{
     $statusGit = git version
     Write-Host 'Git is installed'
