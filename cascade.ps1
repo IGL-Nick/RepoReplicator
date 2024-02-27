@@ -29,4 +29,5 @@ catch{
 
     Invoke-WebRequest 'https://raw.githubusercontent.com/IGL-Nick/RepoReplicator/main/Core/Install-Git.ps1' -OutFile "$workingDirectory/GitInstall/Install-Git.ps1"
     Start-Process -FilePath powershell.exe -ArgumentList "-executionpolicy bypass -noprofile -file $workingDirectory\GitInstall\Install-Git.ps1" -Wait
+    $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 }
